@@ -1,0 +1,152 @@
+% date
+Sat Oct 20 06:44:50 JST 2012
+
+% cat /etc/system-release
+Scientific Linux release 6.1 (Carbon)
+
+% uname -r
+2.6.32-279.5.1.el6.i686
+
+% udevd --version
+147
+
+% udevadm info --name=hidraw0 --attribute-walk
+
+Udevadm info starts with the device specified by the devpath and then
+walks up the chain of parent devices. It prints for every device
+found, all possible attributes in the udev rules key format.
+A rule to match, can be composed by the attributes of the device
+and the attributes from one single parent device.
+
+  looking at device '/devices/pci0000:00/0000:00:1d.7/usb1/1-2/1-2.1/1-2.1:1.0/0003:2101:8501.000F/hidraw/hidraw0':
+    KERNEL=="hidraw0"
+    SUBSYSTEM=="hidraw"
+    DRIVER==""
+
+  looking at parent device '/devices/pci0000:00/0000:00:1d.7/usb1/1-2/1-2.1/1-2.1:1.0/0003:2101:8501.000F':
+    KERNELS=="0003:2101:8501.000F"
+    SUBSYSTEMS=="hid"
+    DRIVERS=="generic-usb"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1d.7/usb1/1-2/1-2.1/1-2.1:1.0':
+    KERNELS=="1-2.1:1.0"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usbhid"
+    ATTRS{bInterfaceNumber}=="00"
+    ATTRS{bAlternateSetting}==" 0"
+    ATTRS{bNumEndpoints}=="01"
+    ATTRS{bInterfaceClass}=="03"
+    ATTRS{bInterfaceSubClass}=="01"
+    ATTRS{bInterfaceProtocol}=="01"
+    ATTRS{modalias}=="usb:v2101p8501d0605dc00dsc00dp00ic03isc01ip01"
+    ATTRS{supports_autosuspend}=="1"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1d.7/usb1/1-2/1-2.1':
+    KERNELS=="1-2.1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{configuration}==""
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bmAttributes}=="a0"
+    ATTRS{bMaxPower}==" 20mA"
+    ATTRS{urbnum}=="1526"
+    ATTRS{idVendor}=="2101"
+    ATTRS{idProduct}=="8501"
+    ATTRS{bcdDevice}=="0605"
+    ATTRS{bDeviceClass}=="00"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bDeviceProtocol}=="00"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{speed}=="480"
+    ATTRS{busnum}=="1"
+    ATTRS{devnum}=="53"
+    ATTRS{version}==" 2.00"
+    ATTRS{maxchild}=="0"
+    ATTRS{quirks}=="0x0"
+    ATTRS{authorized}=="1"
+    ATTRS{manufacturer}=="Action Star"
+    ATTRS{product}=="USB HID"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1d.7/usb1/1-2':
+    KERNELS=="1-2"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{configuration}==""
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{bMaxPower}=="100mA"
+    ATTRS{urbnum}=="17194"
+    ATTRS{idVendor}=="2101"
+    ATTRS{idProduct}=="8500"
+    ATTRS{bcdDevice}=="0106"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bDeviceProtocol}=="02"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{speed}=="480"
+    ATTRS{busnum}=="1"
+    ATTRS{devnum}=="52"
+    ATTRS{version}==" 2.00"
+    ATTRS{maxchild}=="5"
+    ATTRS{quirks}=="0x0"
+    ATTRS{authorized}=="1"
+    ATTRS{manufacturer}=="Action Star"
+    ATTRS{product}=="USB2.0 Hub"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1d.7/usb1':
+    KERNELS=="usb1"
+    SUBSYSTEMS=="usb"
+    DRIVERS=="usb"
+    ATTRS{configuration}==""
+    ATTRS{bNumInterfaces}==" 1"
+    ATTRS{bConfigurationValue}=="1"
+    ATTRS{bmAttributes}=="e0"
+    ATTRS{bMaxPower}=="  0mA"
+    ATTRS{urbnum}=="735"
+    ATTRS{idVendor}=="1d6b"
+    ATTRS{idProduct}=="0002"
+    ATTRS{bcdDevice}=="0206"
+    ATTRS{bDeviceClass}=="09"
+    ATTRS{bDeviceSubClass}=="00"
+    ATTRS{bDeviceProtocol}=="00"
+    ATTRS{bNumConfigurations}=="1"
+    ATTRS{bMaxPacketSize0}=="64"
+    ATTRS{speed}=="480"
+    ATTRS{busnum}=="1"
+    ATTRS{devnum}=="1"
+    ATTRS{version}==" 2.00"
+    ATTRS{maxchild}=="6"
+    ATTRS{quirks}=="0x0"
+    ATTRS{authorized}=="1"
+    ATTRS{manufacturer}=="Linux 2.6.32-279.5.1.el6.i686 ehci_hcd"
+    ATTRS{product}=="EHCI Host Controller"
+    ATTRS{serial}=="0000:00:1d.7"
+    ATTRS{authorized_default}=="1"
+
+  looking at parent device '/devices/pci0000:00/0000:00:1d.7':
+    KERNELS=="0000:00:1d.7"
+    SUBSYSTEMS=="pci"
+    DRIVERS=="ehci_hcd"
+    ATTRS{vendor}=="0x8086"
+    ATTRS{device}=="0x24cd"
+    ATTRS{subsystem_vendor}=="0x1028"
+    ATTRS{subsystem_device}=="0x0160"
+    ATTRS{class}=="0x0c0320"
+    ATTRS{irq}=="23"
+    ATTRS{local_cpus}=="ffffffff"
+    ATTRS{local_cpulist}=="0-31"
+    ATTRS{modalias}=="pci:v00008086d000024CDsv00001028sd00000160bc0Csc03i20"
+    ATTRS{enable}=="1"
+    ATTRS{broken_parity_status}=="0"
+    ATTRS{msi_bus}==""
+    ATTRS{companion}==""
+
+  looking at parent device '/devices/pci0000:00':
+    KERNELS=="pci0000:00"
+    SUBSYSTEMS==""
+    DRIVERS==""
+
